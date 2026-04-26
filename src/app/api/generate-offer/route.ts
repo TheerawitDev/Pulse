@@ -39,7 +39,8 @@ ${JSON.stringify(context, null, 2)}
 `;
 
     // Call local Ollama instance (assuming Gemma is running on port 11434)
-    const ollamaResponse = await fetch('http://localhost:11434/api/generate', {
+    const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
+    const ollamaResponse = await fetch(`${OLLAMA_URL}/api/generate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

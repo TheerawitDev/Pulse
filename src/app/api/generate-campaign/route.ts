@@ -33,6 +33,7 @@ Match the traffic target to their goal (e.g., if they are trying to clear invent
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
       },
       body: JSON.stringify({
         model: MODEL_NAME,

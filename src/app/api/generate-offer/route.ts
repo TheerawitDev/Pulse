@@ -42,7 +42,10 @@ ${JSON.stringify(context, null, 2)}
     const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
     const ollamaResponse = await fetch(`${OLLAMA_URL}/api/generate`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
+      },
       body: JSON.stringify({
         model: 'gemma:2b', // Using the lowest parameter Gemma model
         system: SYSTEM_PROMPT,
